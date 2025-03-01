@@ -1,9 +1,10 @@
 import os
-
-usuario = []
+import string
+import subprocess
+usuario = [{'nome':'', 'email':'', 'telefone':''}]
 
 def exibir_opcoes():
-    print('(1) Login')
+    print('(1) Limpar arquivos inutes windows')
     print('(2) Cadastro usuario')
     print('(3) Exibir cadastros')
     print('(4) Desabilitar aplicativos do windows inicializados com o sistema')
@@ -18,7 +19,11 @@ def escolher_opc():
     try:
         opc = int(input('Escolha uma opção: '))    
         if opc == 1:
-            print('Bem vindo ao login\n')
+            print('limpar arquivos inuteis windows\n')
+            executar_comando = 'Remove-Item -Path C:\\Windows\\Temp\\* -Recurse -Force; New-Item -Path C:\\Windows\\Temp -ItemType Directory -Force;Remove-Item -Path $env:TEMP\\* -Recurse -Force; New-Item -Path $env:TEMP -ItemType Directory -Force'''
+            # Executa o comando
+            
+            ##os.system('del /s /q C:\Windows\Prefetch* ')
         elif opc == 2:
             print('Bem vindo ao Cadastro\n')
             cadastrar_usuario()
@@ -46,19 +51,29 @@ def finalizar_app():
 
 def cadastrar_usuario():
     print(' Cadastrar Usuário\n')
-    inserir_usuario = input('Escreva o nome do usuário: ')
-    usuario.append(inserir_usuario)
-    print(f'O usuario {inserir_usuario} foi cadastrado com sucesso')
-    opc = input('Deseja realizar um novo cadastro ? (y) para sim e qualquer tecla para sair: ')
-    if opc == 'y':
-        os.system('cls')
-        cadastrar_usuario()
-    else:
-        main()
+    try:
+        nome_usuario = input('Digite o nome do usuário: ')
+        email_usuario = input('Digite o email do usuário: ')
+        telefone_usuario = input('Digite o telefone do usuário: ')
+        dados_usuario = {'nome':nome_usuario, 'email':email_usuario, 'telefone':telefone_usuario}
+        usuario.append(dados_usuario)
+        print(f'O usuario {nome_usuario} foi cadastrado com sucesso')
+        opc = input('Deseja realizar um novo cadastro ? (y) para sim e qualquer tecla para sair: ')
+        if opc == 'y':
+            os.system('cls')
+            cadastrar_usuario()
+        else:
+            main()
+    except:
+        print('Erro ao cadastrar usuário')
+        inicio_main()
 
 def exibir_usuarios_cadastrados():
     for usuarios in usuario:
-        print(f'Usuario: {usuarios}') 
+        nome_usuario = usuarios['nome']
+        email_usuario = usuarios['email']
+        telefone_usuario = usuarios['telefone']
+        print(f'Usuario: {nome_usuario} Email: {email_usuario} Telefone: {telefone_usuario}') 
     inicio_main()   
 
 def main():
