@@ -2,7 +2,7 @@ import os
 import string
 import subprocess
 usuario = [{'nome':'', 'email':'', 'telefone':''}]
-#comentario
+#comentariocoentando
 def exibir_opcoes():
     print('(1) Limpar arquivos inutes windows')
     print('(2) Cadastro usuario')
