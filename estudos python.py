@@ -2,7 +2,7 @@ import os
 import string
 import subprocess
 usuario = [{'nome':'', 'email':'', 'telefone':''}]
-
+#comentario
 def exibir_opcoes():
     print('(1) Limpar arquivos inutes windows')
     print('(2) Cadastro usuario')
@@ -21,9 +21,6 @@ def escolher_opc():
         if opc == 1:
             print('limpar arquivos inuteis windows\n')
             executar_comando = 'Remove-Item -Path C:\\Windows\\Temp\\* -Recurse -Force; New-Item -Path C:\\Windows\\Temp -ItemType Directory -Force;Remove-Item -Path $env:TEMP\\* -Recurse -Force; New-Item -Path $env:TEMP -ItemType Directory -Force'''
-            # Executa o comando
-            
-            ##os.system('del /s /q C:\Windows\Prefetch* ')
         elif opc == 2:
             print('Bem vindo ao Cadastro\n')
             cadastrar_usuario()
