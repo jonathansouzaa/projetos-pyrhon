@@ -14,7 +14,7 @@ def inicio_main():
     print('\n')
     input('escreva qualquer tecla para voltar ao menu ')       
     main()
-
+    #testando aqui
 def escolher_opc():
     try:
         opc = int(input('Escolha uma opção: '))    
