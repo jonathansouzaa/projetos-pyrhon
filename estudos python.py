@@ -1,11 +1,11 @@
 import os
+import string
 import subprocess
 usuario = [{'nome':'', 'email':'', 'telefone':''}]
-
 def exibir_opcoes():
     print('(1) Limpar arquivos inutes windows')
-    print('(2) instalar programas')
-    print('(3) Configurar maximo desempenho')
+    print('(2) Cadastro usuario')
+    print('(3) Exibir cadastros')
     print('(4) Desabilitar aplicativos do windows inicializados com o sistema')
     print('(5) Sair\n')
     
@@ -22,8 +22,6 @@ def escolher_opc():
             executar_comando = 'Remove-Item -Path C:\\Windows\\Temp\\* -Recurse -Force; New-Item -Path C:\\Windows\\Temp -ItemType Directory -Force;Remove-Item -Path $env:TEMP\\* -Recurse -Force; New-Item -Path $env:TEMP -ItemType Directory -Force'''
         elif opc == 2:
             print('Bem vindo ao Cadastro\n')
-            
-            
             cadastrar_usuario()
         elif opc == 3:
             print('Exibir usuarios\n')
