@@ -1,7 +1,7 @@
 import os
 import subprocess
 usuario = [{'nome':'', 'email':'', 'telefone':''}]
-#comentariocoentando aqui
+
 def exibir_opcoes():
     print('(1) Limpar arquivos inutes windows')
     print('(2) instalar programas')
